@@ -1,0 +1,32 @@
+{
+  "name": "kimz-films",
+  "version": "1.0.0",
+  "description": "KimzPresentations product films (Remotion)",
+  "repository": {},
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@remotion/cli": "4.0.535",
+    "@remotion/google-fonts": "4.0.535",
+    "@remotion/transitions": "4.0.535",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "remotion": "4.0.535",
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "@remotion/eslint-config-flat": "4.0.535",
+    "@types/react": "19.2.7",
+    "@types/web": "0.0.166",
+    "eslint": "9.39.5",
+    "prettier": "3.8.1",
+    "typescript": "5.9.3"
+  },
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render ProductFilm out/product-film.mp4",
+    "render:ar": "remotion render ProductFilmArabic out/product-film-ar.mp4",
+    "still": "remotion still ProductFilm out/still.jpg --frame=60 --scale=0.5",
+    "lint": "eslint src && tsc"
+  }
+}

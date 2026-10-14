@@ -1,0 +1,71 @@
+name: gallery
+
+# Builds every example deck and screenshots it on GitHub's machines (never on a laptop),
+# then commits the images + README gallery back to main.
+on:
+  push:
+    branches: [main]
+    paths: ['skills/**', 'tools/**', '.github/workflows/gallery.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gallery
+  cancel-in-progress: true
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: skills/kimzpresentations/template/package-lock.json
+
+      - name: Build gallery
+        working-directory: skills/kimzpresentations/template
+        run: |
+          npm ci
+          npm run setup
+          npm run build:gallery
+
+      - name: Serve
+        working-directory: skills/kimzpresentations/template
+        run: |
+          npx vite preview --mode gallery --port 4173 --strictPort &
+          npx --yes wait-on http://localhost:4173 --timeout 60000
+
+      - name: Install capture tools (Chrome + system libs)
+        working-directory: tools
+        run: |
+          npm install
+          npx playwright install --with-deps chrome
+
+      - name: Film stills (Remotion)
+        working-directory: skills/kimzpresentations/films
+        run: |
+          npm ci
+          mkdir -p ../../../docs/images/films
+          for f in 45 165 300 420 520; do
+            npx remotion still ProductFilm ../../../docs/images/films/product-film-$f.jpg --frame=$f --scale=0.5 --image-format=jpeg
+          done
+          npx remotion still ProductFilmArabic ../../../docs/images/films/product-film-ar-90.jpg --frame=90 --scale=0.5 --image-format=jpeg
+
+      - name: Capture
+        working-directory: tools
+        run: BASE=http://localhost:4173 node capture-gallery.mjs
+
+      - name: Commit gallery
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/images README.md
+          git diff --cached --quiet && echo "no changes" && exit 0
+          git commit -m "docs: refresh gallery screenshots [skip ci]"
+          git push

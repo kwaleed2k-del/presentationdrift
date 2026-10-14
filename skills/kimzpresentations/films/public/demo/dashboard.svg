@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="532" viewBox="0 0 1120 532" font-family="Inter, system-ui, sans-serif">
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#a855f7"/></linearGradient>
+    <linearGradient id="area" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#a855f7" stop-opacity=".45"/><stop offset="1" stop-color="#a855f7" stop-opacity="0"/></linearGradient>
+  </defs>
+  <rect width="1120" height="532" fill="#0d0b14"/>
+  <rect width="200" height="532" fill="#0a0910"/>
+  <rect x="24" y="24" width="36" height="36" rx="10" fill="url(#g1)"/>
+  <text x="72" y="48" fill="#fff" font-size="17" font-weight="700">Orbit Labs</text>
+  <g fill="#9ca3af" font-size="14">
+    <rect x="16" y="88" width="168" height="36" rx="10" fill="#1c1830"/><text x="32" y="111" fill="#fff">Overview</text>
+    <text x="32" y="155">Schedules</text><text x="32" y="195">Team</text><text x="32" y="235">Reports</text><text x="32" y="275">Settings</text>
+  </g>
+  <text x="232" y="56" fill="#fff" font-size="24" font-weight="700">Overview</text>
+  <text x="232" y="80" fill="#6b7280" font-size="13">Illustrative demo data</text>
+  <g font-size="12" fill="#9ca3af">
+    <rect x="232" y="104" width="200" height="104" rx="16" fill="#15121f" stroke="#2a2440"/>
+    <text x="252" y="132">MEETINGS SAVED</text><text x="252" y="176" fill="#fff" font-size="36" font-weight="700">1,284</text>
+    <rect x="448" y="104" width="200" height="104" rx="16" fill="#15121f" stroke="#2a2440"/>
+    <text x="468" y="132">HOURS BACK</text><text x="468" y="176" fill="#fff" font-size="36" font-weight="700">312h</text>
+    <rect x="664" y="104" width="200" height="104" rx="16" fill="#15121f" stroke="#2a2440"/>
+    <text x="684" y="132">ON-TIME RATE</text><text x="684" y="176" fill="#22d3ee" font-size="36" font-weight="700">97%</text>
+    <rect x="880" y="104" width="208" height="104" rx="16" fill="#15121f" stroke="#2a2440"/>
+    <text x="900" y="132">AI SUGGESTIONS</text><text x="900" y="176" fill="#a855f7" font-size="36" font-weight="700">8.2k</text>
+  </g>
+  <rect x="232" y="228" width="560" height="280" rx="16" fill="#15121f" stroke="#2a2440"/>
+  <text x="252" y="258" fill="#fff" font-size="16" font-weight="700">Focus time per week</text>
+  <path d="M252 470 C 320 440, 360 420, 420 400 S 520 330, 580 350 S 690 280, 772 270 L 772 490 L 252 490 Z" fill="url(#area)"/>
+  <path d="M252 470 C 320 440, 360 420, 420 400 S 520 330, 580 350 S 690 280, 772 270" fill="none" stroke="#a855f7" stroke-width="3"/>
+  <rect x="808" y="228" width="280" height="280" rx="16" fill="#15121f" stroke="#2a2440"/>
+  <text x="828" y="258" fill="#fff" font-size="16" font-weight="700">Upcoming</text>
+  <g font-size="13" fill="#d1d5db">
+    <rect x="828" y="276" width="240" height="48" rx="10" fill="#1c1830"/><circle cx="848" cy="300" r="6" fill="#22d3ee"/><text x="864" y="305">Design review · 10:00</text>
+    <rect x="828" y="334" width="240" height="48" rx="10" fill="#1c1830"/><circle cx="848" cy="358" r="6" fill="#a855f7"/><text x="864" y="363">Focus block · 11:30</text>
+    <rect x="828" y="392" width="240" height="48" rx="10" fill="#1c1830"/><circle cx="848" cy="416" r="6" fill="#ec4899"/><text x="864" y="421">Customer call · 14:00</text>
+    <rect x="828" y="450" width="240" height="40" rx="10" fill="url(#g1)"/><text x="900" y="475" fill="#06050b" font-weight="700">Auto-schedule ✦</text>
+  </g>
+</svg>

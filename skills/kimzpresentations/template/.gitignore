@@ -1,0 +1,5 @@
+node_modules
+dist
+# React Bits components are installed by `npm run setup` (MIT + Commons Clause: not redistributed here)
+src/components/*.tsx
+!src/components/ui/

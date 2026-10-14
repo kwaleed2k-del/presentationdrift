@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+/* Fonts come from theme tokens (--k-font-*). Utilities below map to them. */
+@theme {
+  --font-display: var(--k-font-display);
+  --font-sans: var(--k-font-body);
+  --font-mono: var(--k-font-mono);
+  --font-ar: "IBM Plex Sans Arabic", var(--k-font-body);
+}
+
+html, body, #root { height: 100%; margin: 0; }
+body { overflow: hidden; -webkit-font-smoothing: antialiased; }
+
+.ar { font-family: var(--font-ar); direction: rtl; }
+.grid-bg {
+  background-image:
+    linear-gradient(var(--k-grid-line, rgba(255,255,255,.05)) 1px, transparent 1px),
+    linear-gradient(90deg, var(--k-grid-line, rgba(255,255,255,.05)) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+.mask-fade { mask-image: radial-gradient(ellipse at center, #000 40%, transparent 75%); }
+
+/*
+ * Animations that read per-element CSS variables (--duration, --radius…) MUST be @utility,
+ * not @theme --animate-* tokens: theme tokens resolve at :root where those vars don't exist,
+ * and the animation silently never runs. Keyframes live at top level so they're always emitted.
+ */
+@utility animate-orbit { animation: orbit calc(var(--duration) * 1s) linear infinite; }
+@utility animate-glitch-after { animation: glitch var(--after-duration) infinite linear alternate-reverse; }
+@utility animate-glitch-before { animation: glitch var(--before-duration) infinite linear alternate-reverse; }
+@utility animate-scan { animation: scan 2.4s ease-in-out infinite; }
+@utility animate-blink { animation: blink 1s step-end infinite; }
+@utility animate-pulse-ring { animation: pulse-ring 1.6s ease-out infinite; }
+
+@keyframes orbit {
+  0% { transform: rotate(0deg) translateY(calc(var(--radius) * 1px)) rotate(0deg); }
+  100% { transform: rotate(360deg) translateY(calc(var(--radius) * 1px)) rotate(-360deg); }
+}
+@keyframes glitch {
+  0% { clip-path: inset(20% 0 50% 0); } 10% { clip-path: inset(15% 0 55% 0); } 20% { clip-path: inset(30% 0 40% 0); }
+  30% { clip-path: inset(10% 0 60% 0); } 40% { clip-path: inset(25% 0 35% 0); } 50% { clip-path: inset(20% 0 50% 0); }
+  60% { clip-path: inset(15% 0 55% 0); } 70% { clip-path: inset(30% 0 40% 0); } 80% { clip-path: inset(20% 0 50% 0); }
+  90% { clip-path: inset(15% 0 55% 0); } 100% { clip-path: inset(30% 0 40% 0); }
+}
+@keyframes scan { 0%, 100% { top: 0%; } 50% { top: 100%; } }
+@keyframes blink { 50% { opacity: 0; } }
+@keyframes pulse-ring { 0% { transform: scale(1); opacity: .7; } 100% { transform: scale(2.6); opacity: 0; } }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes confetti-fall {
+  0% { transform: translate3d(0, -60px, 0) rotate(0deg); opacity: 0; }
+  8% { opacity: 1; }
+  100% { transform: translate3d(var(--drift, 40px), 1160px, 0) rotate(var(--spin, 540deg)); opacity: .9; }
+}
+@keyframes sticker-wobble {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(4deg) scale(1.04); }
+}
+@keyframes drift-lap { from { offset-distance: 0%; } to { offset-distance: 100%; } }

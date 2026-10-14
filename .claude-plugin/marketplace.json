@@ -1,0 +1,12 @@
+{
+  "name": "presentationdrift",
+  "description": "PresentationDrift: cinematic, animation-heavy presentations built by Claude Code.",
+  "owner": { "name": "Kareem Elsayed" },
+  "plugins": [
+    {
+      "name": "kimzpresentations",
+      "source": ".",
+      "description": "Cinematic, animation-heavy React presentations in any style, with a 20-archetype slide library, Remotion product films and guided setup."
+    }
+  ]
+}
