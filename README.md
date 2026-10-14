@@ -100,6 +100,14 @@ Then just ask: *"make me a pitch deck for …"*, *"turn these screenshots into a
 <a href="docs/images/decks/brand-colors/04-services.jpg"><img src="docs/images/decks/brand-colors/04-services.jpg" alt="04-services.jpg" width="32%"></a>
 <a href="docs/images/decks/brand-colors/05-finale.jpg"><img src="docs/images/decks/brand-colors/05-finale.jpg" alt="05-finale.jpg" width="32%"></a>
 
+### Willow Clinic · Patient Onboarding — `examples/clinic-onboarding`
+
+<a href="docs/images/decks/clinic-onboarding/01-open.jpg"><img src="docs/images/decks/clinic-onboarding/01-open.jpg" alt="01-open.jpg" width="32%"></a>
+<a href="docs/images/decks/clinic-onboarding/02-why.jpg"><img src="docs/images/decks/clinic-onboarding/02-why.jpg" alt="02-why.jpg" width="32%"></a>
+<a href="docs/images/decks/clinic-onboarding/03-how.jpg"><img src="docs/images/decks/clinic-onboarding/03-how.jpg" alt="03-how.jpg" width="32%"></a>
+<a href="docs/images/decks/clinic-onboarding/04-change.jpg"><img src="docs/images/decks/clinic-onboarding/04-change.jpg" alt="04-change.jpg" width="32%"></a>
+<a href="docs/images/decks/clinic-onboarding/05-end.jpg"><img src="docs/images/decks/clinic-onboarding/05-end.jpg" alt="05-end.jpg" width="32%"></a>
+
 ### The Quiet Year — `examples/editorial-minimal`
 
 <a href="docs/images/decks/editorial-minimal/01-title.jpg"><img src="docs/images/decks/editorial-minimal/01-title.jpg" alt="01-title.jpg" width="32%"></a>
