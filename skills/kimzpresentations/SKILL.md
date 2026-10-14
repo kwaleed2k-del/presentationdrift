@@ -19,7 +19,7 @@ SKILL/
   films/               ← Remotion project: themed ProductFilm (hook → features → screen → stats → CTA)
   scripts/             ← doctor.mjs (setup check) · new-deck.mjs · assets.py · encode-video.sh
   references/          ← archetypes · themes · assets · content · custom-slides · rtl · pitfalls
-                          react-bits · 21st-dev · films · onboarding
+                          design-direction · react-bits · 21st-dev · films · onboarding
 ```
 
 ## Workflow
@@ -30,6 +30,9 @@ Run `node SKILL/scripts/doctor.mjs` at the start of a session. If anything requi
 ### 1. Understand the talk (ask only what you can't infer)
 Audience and goal · length (≈1 slide/minute) · mode or brand colours · language/RTL · where the assets are (folder of screenshots, videos, photos, brand PDF) · presenting live in a browser (default) or also exporting.
 If the user dumps content and says "go", infer and move — state your assumptions in one line.
+
+### 1b. Design direction — the user's prompt decides the look
+Every deck must look like it was designed for *this* prompt, not like the last deck. Read `references/design-direction.md`, write the 5-line design brief (audience, feeling, palette, type pairing, motion + card style, signature moment), show it to the user in a few lines, then build a custom theme with `defineTheme(base, { …overrides })` and `fonts: [...]`. Stock modes are starting points; the examples are not templates.
 
 ### 2. Scaffold
 ```bash
@@ -56,9 +59,15 @@ No product video yet, or want one in the deck's colours? Copy `SKILL/films`, fil
 ```tsx
 import { TitleSlide, SplitSlide, FinaleSlide } from '@/archetypes'
 import { defineDeck } from '@/engine/types'
+import { defineTheme } from '@/engine/theme'
 export default defineDeck({
   title: 'Orbit Labs · Seed',
-  theme: 'aurora-glass',                 // or brandTheme(['#hex', '#hex'], { dark: true })
+  fonts: ['Syne', 'DM Sans'],            // any Google Fonts pairing from the design brief
+  theme: defineTheme('aurora-glass', {   // custom per deck: palette, fonts, motion, cards…
+    a1: '#34d399', a2: '#818cf8', a3: '#f472b6',
+    fontDisplay: '"Syne", sans-serif', fontBody: '"DM Sans", sans-serif',
+    motion: 'snappy', cardStyle: 'outline', radius: 18,
+  }),
   slides: [
     { id: 'title', section: 'Intro', render: () => <TitleSlide title="ORBIT LABS" subtitle="…" bg="aurora" /> },
     { id: 'pages', section: 'Product', steps: 5, render: () => <RingCarouselSlide … /> },   // → walks 5 steps
@@ -84,6 +93,7 @@ After the first 3–4 hero slides, give the user the localhost link and ask for 
 `neon-dark` · `aurora-glass` · `sunset-heat` · `bright-clean` · `colorful-pop` (brutal) · `minimal-mono` (editorial serif) · `night-luxe` (gold serif) · `brandTheme([...])`. Details and backdrops: `references/themes.md`. Show the gallery to let people pick: `npm run gallery` → `?deck=<example>` then press **T**.
 
 ## Taste rules (why decks made with this feel produced)
+- **No two decks alike.** The design comes from the prompt: custom palette, fonts, motion personality and card style every time; at least one signature custom slide; extras (drift car, boot terminal, confetti, stickers) only when the tone calls for them. Run the anti-sameness check in `design-direction.md`.
 - Every slide has one hero motion moment, plus 2–3 small ones. Not everything moves at once.
 - One-sentence bullets, two-beat headlines (plain + accent), one idea per slide.
 - Pop-ups (Toast), stickers and counters make claims feel alive — attach them to real proof points.

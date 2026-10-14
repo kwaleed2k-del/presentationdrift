@@ -22,6 +22,14 @@ theme: brandTheme(['#7C3AED', '#F59E0B', '#1E1B4B'], { dark: true, label: 'Acme'
 ```
 `brandTheme` keeps the base mode's fonts/radius and derives `bg`/`bg2` from the brand colours. Pass `base: 'colorful-pop'` (etc.) to inherit a different personality.
 
+## Custom theme per deck (the normal case)
+`defineTheme(base, overrides)` — start from the closest mode and change palette, fonts, motion, card style, radius, glow, grid, title case. New tokens:
+- `motion`: `standard` · `calm` · `snappy` · `cinematic` · `playful` (springy) — drives every Reveal/Bullets entrance
+- `cardStyle`: `glass` · `solid` · `outline` · `brutal`
+- `titleCase`: `none` · `upper`
+- deck-level `fonts: ['Family', …]` loads Google Fonts
+See `design-direction.md` for how to pick them from the prompt.
+
 ## Tokens (what archetypes read)
 `bg bg2 surface border ink muted a1 a2 a3 glow grid fontDisplay fontBody fontMono displayWeight displayItalic radius brutal dark`
 - In components: `const t = useTheme()` and `const [a, b] = useAccent()` (slide accent, else theme a1/a2).

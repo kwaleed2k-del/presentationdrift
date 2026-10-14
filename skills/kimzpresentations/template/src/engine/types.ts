@@ -23,6 +23,8 @@ export type DeckDef = {
   theme: ThemeId | Theme
   /** right-to-left deck (Arabic, Hebrew, Urdu…). Switches the body font and text direction. */
   rtl?: boolean
+  /** Google Fonts families to load for this deck, e.g. ['DM Serif Display', 'Manrope:wght@400;700'] (needs internet when presenting — for offline, npm i @fontsource/<font> and import it in deck.tsx instead) */
+  fonts?: string[]
   /** footer text, defaults to title */
   footer?: string
   slides: SlideDef[]

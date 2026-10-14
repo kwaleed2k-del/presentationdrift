@@ -91,6 +91,15 @@ export default function Deck({ deck }: { deck: DeckDef }) {
     return () => window.clearTimeout(t)
   }, [toast])
 
+  // Per-deck Google Fonts (design direction picks the pairing; see references/design-direction.md)
+  useEffect(() => {
+    if (!deck.fonts?.length) return
+    const href = `https://fonts.googleapis.com/css2?${deck.fonts.map((f) => `family=${encodeURIComponent(f.includes(':') ? f : `${f}:wght@400;500;600;700;800`).replace(/%20/g, '+').replace(/%3A/g, ':').replace(/%40/g, '@').replace(/%3B/g, ';')}`).join('&')}&display=swap`
+    const link = Object.assign(document.createElement('link'), { rel: 'stylesheet', href })
+    document.head.appendChild(link)
+    return () => link.remove()
+  }, [deck.fonts])
+
   // Exposed for the gallery capture script (CI screenshots): slide ids + steps + current position.
   useEffect(() => {
     ;(window as unknown as { __kimz: unknown }).__kimz = { title: deck.title, slides: slides.map((s) => ({ id: s.id, steps: s.steps ?? 1 })), index, step }

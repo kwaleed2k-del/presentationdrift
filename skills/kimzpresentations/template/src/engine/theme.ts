@@ -24,6 +24,24 @@ export type Theme = {
   displayItalic?: boolean // serif/italic display (luxe, editorial)
   radius: number // card radius px
   brutal?: boolean // hard borders + offset shadows (colorful-pop)
+  /** how things move: standard · calm (slow, soft) · snappy (fast, crisp) · cinematic (long, blurred) · playful (springy overshoot) */
+  motion?: MotionStyle
+  /** card surfaces: glass (blur), solid (opaque + soft shadow), outline (hairline, no fill), brutal (ink border + offset shadow) */
+  cardStyle?: CardStyle
+  /** headline case */
+  titleCase?: 'none' | 'upper'
+}
+
+export type MotionStyle = 'standard' | 'calm' | 'snappy' | 'cinematic' | 'playful'
+export type CardStyle = 'glass' | 'solid' | 'outline' | 'brutal'
+
+/** Motion personalities read by Reveal, Bullets and archetype entrances. */
+export const MOTION: Record<MotionStyle, { duration: number; stagger: number; blur: number; y: number; ease: number[] | 'spring' }> = {
+  standard: { duration: 0.8, stagger: 0.18, blur: 8, y: 30, ease: [0.22, 1, 0.36, 1] },
+  calm: { duration: 1.1, stagger: 0.22, blur: 6, y: 18, ease: [0.25, 0.1, 0.25, 1] },
+  snappy: { duration: 0.45, stagger: 0.08, blur: 0, y: 24, ease: [0.2, 0.9, 0.3, 1] },
+  cinematic: { duration: 1.3, stagger: 0.2, blur: 16, y: 40, ease: [0.16, 1, 0.3, 1] },
+  playful: { duration: 0.7, stagger: 0.12, blur: 0, y: 50, ease: 'spring' },
 }
 
 const SANS = '"Inter Variable", system-ui, sans-serif'
@@ -78,6 +96,21 @@ export const THEMES = {
 
 export type ThemeId = keyof typeof THEMES
 export const THEME_IDS = Object.keys(THEMES) as ThemeId[]
+
+/**
+ * Build a bespoke theme for THIS deck from the design brief: start from the closest mode and override anything.
+ *   defineTheme('bright-clean', { label: 'Clinic Calm', a1: '#0f766e', a2: '#38bdf8', a3: '#f59e0b',
+ *     fontDisplay: '"DM Serif Display", serif', motion: 'calm', cardStyle: 'solid', radius: 14 })
+ * Load any Google font with `fonts: ['DM Serif Display', 'Manrope']` on the deck.
+ */
+export function defineTheme(base: ThemeId | Theme, overrides: Partial<Theme>): Theme {
+  const b = typeof base === 'string' ? THEMES[base] : base
+  return { ...b, id: overrides.id ?? 'custom', label: overrides.label ?? 'Custom', ...overrides }
+}
+
+/** Effective card style (brutal flag kept for backwards compatibility). */
+export const cardStyleOf = (t: Theme): CardStyle => t.cardStyle ?? (t.brutal ? 'brutal' : t.dark ? 'glass' : 'solid')
+export const motionOf = (t: Theme) => MOTION[t.motion ?? 'standard']
 
 /** Build a theme from a brand's 2–3 hex colours. `dark` picks the base. */
 export function brandTheme(colors: string[], opts: { dark?: boolean; label?: string; base?: ThemeId } = {}): Theme {

@@ -2,7 +2,7 @@ import { motion } from 'motion/react'
 import { useEffect, useState, type CSSProperties, type ReactNode } from 'react'
 import { cn } from '@/lib/utils'
 import { useAccent, useSlideNumber, useTheme } from './context'
-import { alpha } from './theme'
+import { alpha, cardStyleOf, motionOf } from './theme'
 
 export const ease = [0.22, 1, 0.36, 1] as const
 /** Arabic/Hebrew detection — per-character effects break letter joining, so we fall back to word/line motion. */
@@ -41,15 +41,17 @@ export function Glow({ color, className, size = 900 }: { color: string; classNam
 
 /* ─────────────────────────── motion ─────────────────────────── */
 
-export function Reveal({ children, delay = 0, y = 30, x = 0, className, style }: { children: ReactNode; delay?: number; y?: number; x?: number; className?: string; style?: CSSProperties }) {
+export function Reveal({ children, delay = 0, y, x = 0, className, style }: { children: ReactNode; delay?: number; y?: number; x?: number; className?: string; style?: CSSProperties }) {
+  const m = motionOf(useTheme())
+  const transition = m.ease === 'spring' ? { type: 'spring' as const, stiffness: 170, damping: 14, delay } : { duration: m.duration, delay, ease: m.ease as [number, number, number, number] }
   return (
     <motion.div
       className={className}
       style={style}
-      initial={{ opacity: 0, y, x, filter: 'blur(8px)' }}
+      initial={{ opacity: 0, y: y ?? m.y, x, filter: m.blur ? `blur(${m.blur}px)` : 'none' }}
       // filter:none at the end — a lingering blur(0px) makes Chrome rasterise the subtree soft
-      animate={{ opacity: 1, y: 0, x: 0, filter: 'blur(0px)', transitionEnd: { filter: 'none' } }}
-      transition={{ duration: 0.8, delay, ease }}
+      animate={{ opacity: 1, y: 0, x: 0, filter: m.blur ? 'blur(0px)' : 'none', transitionEnd: { filter: 'none' } }}
+      transition={transition}
     >
       {children}
     </motion.div>
@@ -81,7 +83,7 @@ export function Title({ children, className, delay = 0.2, size = 88 }: { childre
   const t = useTheme()
   return (
     <Reveal delay={delay}>
-      <h1 className={cn('leading-[0.95] tracking-[-0.03em]', className)} style={{ fontFamily: 'var(--k-font-display)', fontWeight: t.displayWeight, fontSize: size, color: t.ink, lineHeight: t.brutal ? 1.22 : undefined }}>
+      <h1 className={cn('leading-[0.95] tracking-[-0.03em]', className)} style={{ fontFamily: 'var(--k-font-display)', fontWeight: t.displayWeight, fontSize: size, color: t.ink, lineHeight: t.brutal ? 1.22 : undefined, textTransform: t.titleCase === 'upper' ? 'uppercase' : undefined }}>
         {children}
       </h1>
     </Reveal>
@@ -109,10 +111,11 @@ export function Bullets({ items, delay = 0.6, className, size = 30, color }: { i
   const t = useTheme()
   const acc = useAccent()
   const c = color ?? acc[0]
+  const m = motionOf(t)
   return (
     <ul className={cn('flex flex-col gap-5', className)}>
       {items.map((it, i) => (
-        <motion.li key={i} className="flex items-start gap-5 leading-snug" style={{ fontSize: size, color: t.ink, opacity: 0.88 }} initial={{ opacity: 0, x: -30 }} animate={{ opacity: 0.88, x: 0 }} transition={{ duration: 0.6, delay: delay + i * 0.18, ease }}>
+        <motion.li key={i} className="flex items-start gap-5 leading-snug" style={{ fontSize: size, color: t.ink, opacity: 0.88 }} initial={{ opacity: 0, x: -30 }} animate={{ opacity: 0.88, x: 0 }} transition={{ duration: Math.min(0.9, m.duration), delay: delay + i * m.stagger, ease }}>
           <span className="relative mt-[0.45em] flex size-3 shrink-0">
             {t.glow > 0 && <span className="absolute inset-0 animate-pulse-ring rounded-full" style={{ background: c }} />}
             <span className="relative size-3 rounded-full" style={{ background: c, boxShadow: t.glow ? `0 0 14px ${c}` : 'none', outline: t.brutal ? `2px solid ${t.ink}` : undefined }} />
@@ -151,9 +154,13 @@ export function Card({ children, className, style, color }: { children: ReactNod
   const t = useTheme()
   const acc = useAccent()
   const c = color ?? acc[0]
-  const look: CSSProperties = t.brutal
-    ? { background: t.surface, border: `3px solid ${t.ink}`, boxShadow: `8px 8px 0 ${t.ink}` }
-    : { background: t.surface, border: `1px solid ${t.border}`, boxShadow: t.dark ? `0 0 60px -28px ${c}, inset 0 1px 0 rgba(255,255,255,.06)` : '0 20px 50px -30px rgba(15,23,42,.35)', backdropFilter: t.dark ? 'blur(16px)' : undefined }
+  const looks: Record<string, CSSProperties> = {
+    brutal: { background: t.surface, border: `3px solid ${t.ink}`, boxShadow: `8px 8px 0 ${t.ink}` },
+    glass: { background: t.surface, border: `1px solid ${t.border}`, boxShadow: `0 0 60px -28px ${c}, inset 0 1px 0 rgba(255,255,255,.06)`, backdropFilter: 'blur(16px)' },
+    solid: { background: t.dark ? alpha(t.bg2.startsWith('#') ? t.bg2 : '#111111', 1) : t.surface, border: `1px solid ${t.border}`, boxShadow: t.dark ? '0 30px 60px -30px rgba(0,0,0,.8)' : '0 20px 50px -30px rgba(15,23,42,.35)' },
+    outline: { background: 'transparent', border: `1.5px solid ${alpha(t.ink.startsWith('#') ? t.ink : '#888888', 0.28)}`, boxShadow: 'none' },
+  }
+  const look = looks[cardStyleOf(t)]
   return (
     <div className={cn('relative', className)} style={{ borderRadius: t.radius, ...look, ...style }}>
       {children}

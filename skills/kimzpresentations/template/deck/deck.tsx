@@ -2,7 +2,8 @@ import { AgendaSlide, BentoSlide, FinaleSlide, ProcessSlide, SplitSlide, StatsSl
 import { defineDeck } from '@/engine/types'
 
 /**
- * Your deck. Replace the content, keep the shape:
+ * Your deck. Placeholder content — the real design comes from the design brief (references/design-direction.md):
+ *   use defineTheme(base, { palette, fonts, motion, cardStyle… }) + fonts: [...] instead of a stock mode.
  *   - theme: 'neon-dark' | 'bright-clean' | 'colorful-pop' | 'minimal-mono' | 'night-luxe' | 'aurora-glass' | 'sunset-heat'
  *            or brandTheme(['#hex1', '#hex2'], { dark: true })
  *   - slides: { id, section?, steps?, accent?, notes?, render }
@@ -20,11 +21,7 @@ export default defineDeck({
           title="YOUR TITLE"
           subtitle="One line that says why this matters"
           chips={['Point one', 'Point two', 'Point three']}
-          terminal={[
-            { text: 'kimz --present', kind: 'cmd', pause: 300 },
-            { text: '✓ theme loaded', kind: 'ok' },
-            { text: '✓ slides ready', kind: 'ok', pause: 300 },
-          ]}
+          bg="none"
         />
       ),
     },
@@ -77,6 +74,6 @@ export default defineDeck({
       section: 'Proof',
       render: () => <StatsSlide kicker="Numbers" title="Real numbers" accent="only." stats={[{ value: 12, suffix: 'k', label: 'example metric' }, { value: 98, suffix: '%', label: 'example rate', ring: 98 }, { value: 3, suffix: '×', label: 'example speed-up' }]} />,
     },
-    { id: 'finale', section: 'Fin', render: () => <FinaleSlide line1="Build. Test. Ship." line2="That’s the deck." signoff="YOUR NAME · YOUR COMPANY" car /> },
+    { id: 'finale', section: 'Fin', render: () => <FinaleSlide line1="Your closing line." line2="Your sign-off." signoff="YOUR NAME · YOUR COMPANY" /> },
   ],
 })
