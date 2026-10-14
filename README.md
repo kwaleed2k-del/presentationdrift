@@ -62,6 +62,106 @@ Then just ask: *"make me a pitch deck for …"*, *"turn these screenshots into a
 
 ## Gallery
 
+<!-- gallery:start -->
+### Every mode (press **T** in any deck to switch live)
+
+<a href="docs/images/themes/neon-dark.jpg"><img src="docs/images/themes/neon-dark.jpg" alt="neon-dark" width="32%"></a>
+<a href="docs/images/themes/bright-clean.jpg"><img src="docs/images/themes/bright-clean.jpg" alt="bright-clean" width="32%"></a>
+<a href="docs/images/themes/colorful-pop.jpg"><img src="docs/images/themes/colorful-pop.jpg" alt="colorful-pop" width="32%"></a>
+<a href="docs/images/themes/minimal-mono.jpg"><img src="docs/images/themes/minimal-mono.jpg" alt="minimal-mono" width="32%"></a>
+<a href="docs/images/themes/night-luxe.jpg"><img src="docs/images/themes/night-luxe.jpg" alt="night-luxe" width="32%"></a>
+<a href="docs/images/themes/aurora-glass.jpg"><img src="docs/images/themes/aurora-glass.jpg" alt="aurora-glass" width="32%"></a>
+<a href="docs/images/themes/sunset-heat.jpg"><img src="docs/images/themes/sunset-heat.jpg" alt="sunset-heat" width="32%"></a>
+
+`neon-dark` · `bright-clean` · `colorful-pop` · `minimal-mono` · `night-luxe` · `aurora-glass` · `sunset-heat`
+
+### Remotion product films — `films/` (rendered stills)
+
+<a href="docs/images/films/product-film-165.jpg"><img src="docs/images/films/product-film-165.jpg" alt="product-film-165.jpg" width="32%"></a>
+<a href="docs/images/films/product-film-300.jpg"><img src="docs/images/films/product-film-300.jpg" alt="product-film-300.jpg" width="32%"></a>
+<a href="docs/images/films/product-film-420.jpg"><img src="docs/images/films/product-film-420.jpg" alt="product-film-420.jpg" width="32%"></a>
+<a href="docs/images/films/product-film-45.jpg"><img src="docs/images/films/product-film-45.jpg" alt="product-film-45.jpg" width="32%"></a>
+<a href="docs/images/films/product-film-520.jpg"><img src="docs/images/films/product-film-520.jpg" alt="product-film-520.jpg" width="32%"></a>
+<a href="docs/images/films/product-film-ar-90.jpg"><img src="docs/images/films/product-film-ar-90.jpg" alt="product-film-ar-90.jpg" width="32%"></a>
+
+### منصة ريادة · عرض تجريبي — `examples/arabic-rtl`
+
+<a href="docs/images/decks/arabic-rtl/01-title.jpg"><img src="docs/images/decks/arabic-rtl/01-title.jpg" alt="01-title.jpg" width="32%"></a>
+<a href="docs/images/decks/arabic-rtl/02-problem.jpg"><img src="docs/images/decks/arabic-rtl/02-problem.jpg" alt="02-problem.jpg" width="32%"></a>
+<a href="docs/images/decks/arabic-rtl/03-how.jpg"><img src="docs/images/decks/arabic-rtl/03-how.jpg" alt="03-how.jpg" width="32%"></a>
+<a href="docs/images/decks/arabic-rtl/04-numbers.jpg"><img src="docs/images/decks/arabic-rtl/04-numbers.jpg" alt="04-numbers.jpg" width="32%"></a>
+<a href="docs/images/decks/arabic-rtl/05-finale.jpg"><img src="docs/images/decks/arabic-rtl/05-finale.jpg" alt="05-finale.jpg" width="32%"></a>
+
+### Pulse Studio · Brand Deck — `examples/brand-colors`
+
+<a href="docs/images/decks/brand-colors/01-title.jpg"><img src="docs/images/decks/brand-colors/01-title.jpg" alt="01-title.jpg" width="32%"></a>
+<a href="docs/images/decks/brand-colors/02-statement.jpg"><img src="docs/images/decks/brand-colors/02-statement.jpg" alt="02-statement.jpg" width="32%"></a>
+<a href="docs/images/decks/brand-colors/03-orbit.jpg"><img src="docs/images/decks/brand-colors/03-orbit.jpg" alt="03-orbit.jpg" width="32%"></a>
+<a href="docs/images/decks/brand-colors/04-services.jpg"><img src="docs/images/decks/brand-colors/04-services.jpg" alt="04-services.jpg" width="32%"></a>
+<a href="docs/images/decks/brand-colors/05-finale.jpg"><img src="docs/images/decks/brand-colors/05-finale.jpg" alt="05-finale.jpg" width="32%"></a>
+
+### The Quiet Year — `examples/editorial-minimal`
+
+<a href="docs/images/decks/editorial-minimal/01-title.jpg"><img src="docs/images/decks/editorial-minimal/01-title.jpg" alt="01-title.jpg" width="32%"></a>
+<a href="docs/images/decks/editorial-minimal/02-parts.jpg"><img src="docs/images/decks/editorial-minimal/02-parts.jpg" alt="02-parts.jpg" width="32%"></a>
+<a href="docs/images/decks/editorial-minimal/03-no.jpg"><img src="docs/images/decks/editorial-minimal/03-no.jpg" alt="03-no.jpg" width="32%"></a>
+<a href="docs/images/decks/editorial-minimal/04-write.jpg"><img src="docs/images/decks/editorial-minimal/04-write.jpg" alt="04-write.jpg" width="32%"></a>
+<a href="docs/images/decks/editorial-minimal/05-quote.jpg"><img src="docs/images/decks/editorial-minimal/05-quote.jpg" alt="05-quote.jpg" width="32%"></a>
+<a href="docs/images/decks/editorial-minimal/06-finale.jpg"><img src="docs/images/decks/editorial-minimal/06-finale.jpg" alt="06-finale.jpg" width="32%"></a>
+
+### Maison Aurelle · AW Collection — `examples/luxury-brand`
+
+<a href="docs/images/decks/luxury-brand/01-title.jpg"><img src="docs/images/decks/luxury-brand/01-title.jpg" alt="01-title.jpg" width="32%"></a>
+<a href="docs/images/decks/luxury-brand/02-statement.jpg"><img src="docs/images/decks/luxury-brand/02-statement.jpg" alt="02-statement.jpg" width="32%"></a>
+<a href="docs/images/decks/luxury-brand/03-wall.jpg"><img src="docs/images/decks/luxury-brand/03-wall.jpg" alt="03-wall.jpg" width="32%"></a>
+<a href="docs/images/decks/luxury-brand/04-quote.jpg"><img src="docs/images/decks/luxury-brand/04-quote.jpg" alt="04-quote.jpg" width="32%"></a>
+<a href="docs/images/decks/luxury-brand/05-atelier.jpg"><img src="docs/images/decks/luxury-brand/05-atelier.jpg" alt="05-atelier.jpg" width="32%"></a>
+<a href="docs/images/decks/luxury-brand/06-finale.jpg"><img src="docs/images/decks/luxury-brand/06-finale.jpg" alt="06-finale.jpg" width="32%"></a>
+
+### Nomad Coffee · App Launch — `examples/product-launch`
+
+<a href="docs/images/decks/product-launch/01-title.jpg"><img src="docs/images/decks/product-launch/01-title.jpg" alt="01-title.jpg" width="32%"></a>
+<a href="docs/images/decks/product-launch/02-why.jpg"><img src="docs/images/decks/product-launch/02-why.jpg" alt="02-why.jpg" width="32%"></a>
+<a href="docs/images/decks/product-launch/03-app.jpg"><img src="docs/images/decks/product-launch/03-app.jpg" alt="03-app.jpg" width="32%"></a>
+<a href="docs/images/decks/product-launch/04-features.jpg"><img src="docs/images/decks/product-launch/04-features.jpg" alt="04-features.jpg" width="32%"></a>
+<a href="docs/images/decks/product-launch/05-orders.jpg"><img src="docs/images/decks/product-launch/05-orders.jpg" alt="05-orders.jpg" width="32%"></a>
+<a href="docs/images/decks/product-launch/06-before-after.jpg"><img src="docs/images/decks/product-launch/06-before-after.jpg" alt="06-before-after.jpg" width="32%"></a>
+<a href="docs/images/decks/product-launch/07-finale.jpg"><img src="docs/images/decks/product-launch/07-finale.jpg" alt="07-finale.jpg" width="32%"></a>
+
+### Northwind · Q3 Review — `examples/quarterly-report`
+
+<a href="docs/images/decks/quarterly-report/01-title.jpg"><img src="docs/images/decks/quarterly-report/01-title.jpg" alt="01-title.jpg" width="32%"></a>
+<a href="docs/images/decks/quarterly-report/02-agenda.jpg"><img src="docs/images/decks/quarterly-report/02-agenda.jpg" alt="02-agenda.jpg" width="32%"></a>
+<a href="docs/images/decks/quarterly-report/03-numbers.jpg"><img src="docs/images/decks/quarterly-report/03-numbers.jpg" alt="03-numbers.jpg" width="32%"></a>
+<a href="docs/images/decks/quarterly-report/04-chart.jpg"><img src="docs/images/decks/quarterly-report/04-chart.jpg" alt="04-chart.jpg" width="32%"></a>
+<a href="docs/images/decks/quarterly-report/05-change.jpg"><img src="docs/images/decks/quarterly-report/05-change.jpg" alt="05-change.jpg" width="32%"></a>
+<a href="docs/images/decks/quarterly-report/06-q4.jpg"><img src="docs/images/decks/quarterly-report/06-q4.jpg" alt="06-q4.jpg" width="32%"></a>
+<a href="docs/images/decks/quarterly-report/07-finale.jpg"><img src="docs/images/decks/quarterly-report/07-finale.jpg" alt="07-finale.jpg" width="32%"></a>
+
+### Orbit Labs · Seed — `examples/startup-pitch`
+
+<a href="docs/images/decks/startup-pitch/01-title.jpg"><img src="docs/images/decks/startup-pitch/01-title.jpg" alt="01-title.jpg" width="32%"></a>
+<a href="docs/images/decks/startup-pitch/02-problem.jpg"><img src="docs/images/decks/startup-pitch/02-problem.jpg" alt="02-problem.jpg" width="32%"></a>
+<a href="docs/images/decks/startup-pitch/03-how.jpg"><img src="docs/images/decks/startup-pitch/03-how.jpg" alt="03-how.jpg" width="32%"></a>
+<a href="docs/images/decks/startup-pitch/04-screens.jpg"><img src="docs/images/decks/startup-pitch/04-screens.jpg" alt="04-screens.jpg" width="32%"></a>
+<a href="docs/images/decks/startup-pitch/05-traction.jpg"><img src="docs/images/decks/startup-pitch/05-traction.jpg" alt="05-traction.jpg" width="32%"></a>
+<a href="docs/images/decks/startup-pitch/06-why.jpg"><img src="docs/images/decks/startup-pitch/06-why.jpg" alt="06-why.jpg" width="32%"></a>
+<a href="docs/images/decks/startup-pitch/07-team.jpg"><img src="docs/images/decks/startup-pitch/07-team.jpg" alt="07-team.jpg" width="32%"></a>
+<a href="docs/images/decks/startup-pitch/08-finale.jpg"><img src="docs/images/decks/startup-pitch/08-finale.jpg" alt="08-finale.jpg" width="32%"></a>
+
+### Shipping With Agents — `examples/tech-talk`
+
+<a href="docs/images/decks/tech-talk/01-boot.jpg"><img src="docs/images/decks/tech-talk/01-boot.jpg" alt="01-boot.jpg" width="32%"></a>
+<a href="docs/images/decks/tech-talk/02-stack.jpg"><img src="docs/images/decks/tech-talk/02-stack.jpg" alt="02-stack.jpg" width="32%"></a>
+<a href="docs/images/decks/tech-talk/03-loop.jpg"><img src="docs/images/decks/tech-talk/03-loop.jpg" alt="03-loop.jpg" width="32%"></a>
+<a href="docs/images/decks/tech-talk/04-pipeline.jpg"><img src="docs/images/decks/tech-talk/04-pipeline.jpg" alt="04-pipeline.jpg" width="32%"></a>
+<a href="docs/images/decks/tech-talk/05-ui.jpg"><img src="docs/images/decks/tech-talk/05-ui.jpg" alt="05-ui.jpg" width="32%"></a>
+<a href="docs/images/decks/tech-talk/06-films.jpg"><img src="docs/images/decks/tech-talk/06-films.jpg" alt="06-films.jpg" width="32%"></a>
+<a href="docs/images/decks/tech-talk/07-journey.jpg"><img src="docs/images/decks/tech-talk/07-journey.jpg" alt="07-journey.jpg" width="32%"></a>
+<a href="docs/images/decks/tech-talk/08-finale.jpg"><img src="docs/images/decks/tech-talk/08-finale.jpg" alt="08-finale.jpg" width="32%"></a>
+
+<!-- gallery:end -->
+
 <!-- Screenshots of every mode and archetype go in docs/images/ -->
 Run it yourself:
 ```bash
