@@ -13,6 +13,7 @@
 8. **Grid + `place-items-center` with an oversized child** offsets it instead of centring (the auto track grows to the right). Use `flex items-center justify-center` for overflowing centred content.
 9. Motion can't tween between `px` and `calc()` — use numbers.
 10. Tailwind translate utilities use the `translate` property, Motion uses `transform` — they combine, they don't override. Don't also set `style.transform` on an element Motion animates.
+10b. **React Bits classes missing (badges collapse, CircularText letters pile up):** `src/components/*.tsx` is gitignored and Tailwind v4 skips gitignored files, so their `w-[200px]`, `text-2xl`… are never generated. `src/index.css` must keep `@source "./components/*.tsx";` (a bare folder path is not enough).
 
 ## React
 11. `color ?? useAccent()[0]` calls a hook conditionally → hoist: `const acc = useAccent()`.

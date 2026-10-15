@@ -1,7 +1,8 @@
 # Design direction — every deck gets its own look
 
 The modes, archetypes and examples are **raw material, not a house style**. Two different prompts must
-produce two decks that look like they came from two different studios. Do this step before writing any slide.
+produce two decks that look like they came from two different studios. This step comes right after the
+style auditions (`style-auditions.md`): the brief below is written from the look the user picked, not invented again.
 
 ## 1. Write a design brief (5 lines, show it to the user)
 Derive it from the prompt, the brand, the audience and the content — not from the defaults.
@@ -79,6 +80,7 @@ Every deck gets at least one **custom slide written for its content** (see `cust
 Use the user's real data and assets. If they have none, ask for one artefact (a screenshot, a number, a photo) — it beats any effect.
 
 ## 5. Anti-sameness check (before showing the user)
+- [ ] Three style auditions were shown, and the theme comes from the one the user picked (or their mix)
 - [ ] Theme is custom (palette + fonts + motion + cards changed), or the user asked for a stock mode
 - [ ] Not neon-dark + Space Grotesk by default
 - [ ] Opener isn't the stock Title+terminal unless it fits

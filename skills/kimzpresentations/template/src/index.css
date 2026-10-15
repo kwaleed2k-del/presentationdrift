@@ -1,4 +1,6 @@
 @import "tailwindcss";
+/* React Bits sources are gitignored (installed per machine), and Tailwind skips gitignored files: scan them explicitly */
+@source "./components/*.tsx";
 
 /* Fonts come from theme tokens (--k-font-*). Utilities below map to them. */
 @theme {

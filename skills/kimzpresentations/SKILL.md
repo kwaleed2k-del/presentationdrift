@@ -1,6 +1,6 @@
 ---
 name: kimzpresentations
-description: Build cinematic, animation-heavy presentations as React web decks — neon, bright, colourful, minimal, luxe or any brand's colours — with a 20-archetype slide library (title boot terminals, 3D carousels, journeys, live UI mocks, video walls, stats, thank-you slides with stickers, drifting-car finales), a presenter engine (keyboard nav, build steps, theme switching, notes, overview) and a crisp-asset pipeline for screenshots, logos, photos and video. Use this whenever someone wants a presentation, deck, slides, keynote, pitch deck, demo day deck, product launch, QBR/quarterly review, tech talk, team showcase, "how I work" deck, thank-you slides, or wants slides that are animated, "sick", "wow", "flex", colourful or on-brand — even if they don't say "React" and even if they only paste content, screenshots or a brand PDF. Also use it to restyle or upgrade an existing deck.
+description: Build cinematic, animation-heavy presentations as React web decks — neon, bright, colourful, minimal, luxe or any brand's colours — with a 20-archetype slide library (title boot terminals, 3D carousels, journeys, live UI mocks, video walls, stats, thank-you slides with stickers, drifting-car finales), a presenter engine (keyboard nav, build steps, theme switching, notes, overview) and a crisp-asset pipeline for screenshots, logos, photos and video. Use this whenever someone wants a presentation, deck, slides, keynote, pitch deck, demo day deck, product launch, QBR/quarterly review, tech talk, team showcase, "how I work" deck, thank-you slides, or wants slides that are animated, "sick", "wow", "flex", colourful or on-brand — even if they don't say "React" and even if they only paste content, screenshots or a brand PDF. Also use it to restyle or upgrade an existing deck. Every new deck starts with three live style options built from the presenter's character and prompt, so no two people get the same deck.
 ---
 
 # KimzPresentations
@@ -17,9 +17,10 @@ SKILL/
     examples/          ← 8 synthetic decks: startup-pitch, tech-talk, product-launch, quarterly-report,
                           luxury-brand, editorial-minimal, arabic-rtl, brand-colors
   films/               ← Remotion project: themed ProductFilm (hook → features → screen → stats → CTA)
-  scripts/             ← doctor.mjs (setup check) · new-deck.mjs · assets.py · encode-video.sh
+  auditions/           ← index.html: the 3-look style audition starter (engine done, looks to replace)
+  scripts/             ← doctor.mjs (setup check) · auditions.mjs · new-deck.mjs · assets.py · encode-video.sh
   references/          ← archetypes · themes · assets · content · custom-slides · rtl · pitfalls
-                          design-direction · react-bits · 21st-dev · films · onboarding
+                          style-auditions · design-direction · react-bits · 21st-dev · films · onboarding
 ```
 
 ## Workflow
@@ -29,10 +30,15 @@ Run `node SKILL/scripts/doctor.mjs` at the start of a session. If anything requi
 
 ### 1. Understand the talk (ask only what you can't infer)
 Audience and goal · length (≈1 slide/minute) · mode or brand colours · language/RTL · where the assets are (folder of screenshots, videos, photos, brand PDF) · presenting live in a browser (default) or also exporting.
-If the user dumps content and says "go", infer and move — state your assumptions in one line.
+If the user dumps content and says "go", infer and move straight to the style auditions; state your assumptions in one line.
 
-### 1b. Design direction — the user's prompt decides the look
-Every deck must look like it was designed for *this* prompt, not like the last deck. Read `references/design-direction.md`, write the 5-line design brief (audience, feeling, palette, type pairing, motion + card style, signature moment), show it to the user in a few lines, then build a custom theme with `defineTheme(base, { …overrides })` and `fonts: [...]`. Stock modes are starting points; the examples are not templates.
+### 1b. Style auditions: 3 live looks, built for this person (always, before scaffolding)
+Same prompt shape ≠ same deck. Before any `new-deck`, read `references/style-auditions.md` and:
+1. **Read the person:** presenter's character in 3 words, the room, and their signals (words, emojis, colours, "I hate text").
+2. **Pick three directions that disagree** (safe fit · bold fit · wildcard) from the direction library, differing on ≥4 axes: palette, type, motion personality, surface, signature mechanic, backdrop. Never the previous deck's look, never stock neon + Space Grotesk.
+3. **Build one light HTML page** with `node SKILL/scripts/auditions.mjs <deck>-design` (copies the starter and serves http://localhost:5400). Each look plays the same two moments of *their* talk (opener + one signature moment) in its own treatment, with a spec card. No npm, no WebGL, no private photos.
+4. **Give the localhost link and stop.** Wait for "A/B/C" or a mix. Then write the 5-line brief from the winner (`references/design-direction.md`) → `defineTheme(...)` + `fonts` + a deck CSS file, and stop the audition server.
+Skip only when the user gives an exact style (brand guide, "exactly like X") or says to skip the options. Offer a round 2 (three variations of the winner) if they want more.
 
 ### 2. Scaffold
 ```bash
@@ -93,7 +99,7 @@ After the first 3–4 hero slides, give the user the localhost link and ask for 
 `neon-dark` · `aurora-glass` · `sunset-heat` · `bright-clean` · `colorful-pop` (brutal) · `minimal-mono` (editorial serif) · `night-luxe` (gold serif) · `brandTheme([...])`. Details and backdrops: `references/themes.md`. Show the gallery to let people pick: `npm run gallery` → `?deck=<example>` then press **T**.
 
 ## Taste rules (why decks made with this feel produced)
-- **No two decks alike.** The design comes from the prompt: custom palette, fonts, motion personality and card style every time; at least one signature custom slide; extras (drift car, boot terminal, confetti, stickers) only when the tone calls for them. Run the anti-sameness check in `design-direction.md`.
+- **No two decks alike.** Every deck starts with the three style auditions, and the design comes from the person and the prompt: custom palette, fonts, motion personality and card style every time; at least one signature custom slide; extras (drift car, boot terminal, confetti, stickers) only when the tone calls for them. Run the anti-sameness check in `design-direction.md`.
 - Every slide has one hero motion moment, plus 2–3 small ones. Not everything moves at once.
 - One-sentence bullets, two-beat headlines (plain + accent), one idea per slide.
 - Pop-ups (Toast), stickers and counters make claims feel alive — attach them to real proof points.

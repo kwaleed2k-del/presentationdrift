@@ -40,7 +40,7 @@ cp -r presentationdrift/skills/kimzpresentations ~/.claude/skills/
 
 Run the check yourself any time: `node ~/.claude/plugins/…/skills/kimzpresentations/scripts/doctor.mjs` (Claude knows the path).
 
-Then just ask: *"make me a pitch deck for …"*, *"turn these screenshots into a launch presentation, colourful"*, *"build a thank-you section for my team"*.
+Then just ask: *"make me a pitch deck for …"*. Claude first shows you 3 animated style options built for you, then builds the one you pick. Or ask: *"turn these screenshots into a launch presentation, colourful"*, *"build a thank-you section for my team"*.
 
 **Requirements:** Node 20+, npm, Python 3 + Pillow (asset scripts), ffmpeg (video script).
 
@@ -50,6 +50,7 @@ Then just ask: *"make me a pitch deck for …"*, *"turn these screenshots into a
 
 | | |
 |---|---|
+| **3 style auditions first** | before anything is built, Claude reads your character and prompt and shows **three live, animated looks** (safe fit · bold fit · wildcard) on localhost. Pick one or mix them; your deck is built from it, so no two people get the same deck. 18-direction library: bubblegum pop, pearl glam, comic book, Najd dusk, blueprint, Swiss grid, Y2K chrome… |
 | **Presenter engine** | keyboard nav, build **steps**, `#7` deep links, **F** fullscreen, **H** hide chrome, **O** overview, **T** cycle themes live, **N** speaker notes |
 | **7 modes + brand** | `neon-dark` · `aurora-glass` · `sunset-heat` · `bright-clean` · `colorful-pop` · `minimal-mono` · `night-luxe` · `brandTheme(['#hex', …])` |
 | **20 archetypes** | Title (boot terminal) · Statement · Split · Bento · Process · Stats · Chart · Compare (sweep slider) · 3D Ring Carousel · Screenshot (exploded 1:1 UI) · Live Table mock · Terminal · Video Wall · Journey path · Orbit · Wall of Work · Quote · Agenda · People (photos + stickers + confetti) · Finale (drifting car) |
