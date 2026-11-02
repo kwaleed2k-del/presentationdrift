@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// KimzPresentations setup check. Prints ✓ / ✗ with the exact fix for this OS.
+// kimzPresentations setup check. Prints ✓ / ✗ with the exact fix for this OS.
 //   node <skill>/scripts/doctor.mjs                 check everything
 //   node <skill>/scripts/doctor.mjs --mark 21st      remember "21st.dev account created"
 // State lives in ~/.kimzpresentations.json (no secrets are stored there).

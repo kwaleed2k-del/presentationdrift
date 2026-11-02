@@ -1,6 +1,6 @@
 {
   "name": "presentationdrift",
-  "description": "PresentationDrift: cinematic, animation-heavy presentations built by Claude Code.",
+  "description": "kimzPresentations: cinematic, animation-heavy presentations built by Claude Code.",
   "owner": { "name": "Kareem Elsayed" },
   "plugins": [
     {

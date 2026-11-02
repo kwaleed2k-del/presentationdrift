@@ -1,0 +1,197 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>kimzPresentations — five cover directions</title>
+<!--
+  Five cover slides (slide 01) in five directions from the audition library.
+  Synthetic presenters only. 1280x720 per page; everything inside sizes in cqw
+  so a page scales as one piece. Flow layout only: no absolutely positioned text.
+  Screenshot with docs/shoot-covers.mjs -> docs/images/covers/*.jpg
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Figtree:wght@400;600;800&family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300&family=Montserrat:wght@300;500;600&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;700&family=Reem+Kufi:wght@400;600;700&family=Readex+Pro:wght@300;400;600&family=Bangers&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#15161c;display:flex;flex-direction:column;align-items:center;gap:26px;padding:26px}
+.page{width:1280px;height:720px;container-type:inline-size;overflow:hidden;position:relative;display:flex;flex-direction:column;justify-content:space-between}
+
+/* 01 - Bubblegum Pop */
+.pop{background:#fff6fb;color:#2b0b1f;font-family:'Figtree',sans-serif;
+  background-image:radial-gradient(#ffd3ea 1.6px,transparent 1.6px);background-size:22px 22px;padding:4.6cqw 5cqw}
+.pop .top{display:flex;align-items:center;justify-content:space-between;gap:2cqw}
+.pop .tag{display:inline-block;background:#ff3d9a;color:#fff;font-weight:800;font-size:1.15cqw;letter-spacing:.14em;text-transform:uppercase;padding:.75cqw 1.3cqw;border-radius:99px;border:.23cqw solid #2b0b1f;box-shadow:.3cqw .35cqw 0 #2b0b1f}
+.pop .badge{width:9cqw;height:9cqw;border-radius:50%;background:#ffe36e;border:.25cqw solid #2b0b1f;box-shadow:.4cqw .45cqw 0 #2b0b1f;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.05cqw;line-height:1.15;text-align:center;color:#2b0b1f}
+.pop h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:7.6cqw;line-height:.92;letter-spacing:-.03em;max-width:84%}
+.pop h1 em{font-style:normal;color:#ff3d9a;text-shadow:.16cqw .18cqw 0 #2b0b1f}
+.pop .sub{font-size:1.9cqw;font-weight:600;color:#7a3159;margin-top:1.6cqw;max-width:62%}
+.pop .mid{flex:1;display:flex;flex-direction:column;justify-content:center}
+.pop .bottom{display:flex;align-items:flex-end;justify-content:space-between;gap:2cqw}
+.pop .who{display:flex;align-items:center;gap:1.2cqw}
+.pop .av{width:4.6cqw;height:4.6cqw;border-radius:50%;background:linear-gradient(140deg,#ff86c2,#c38bff);border:.22cqw solid #2b0b1f}
+.pop .nm{font-weight:800;font-size:1.65cqw}
+.pop .rl{font-size:1.2cqw;color:#8a4c6c;font-weight:600}
+.pop .stickers{display:flex;gap:.9cqw}
+.pop .st{background:#fff;border:.22cqw solid #2b0b1f;border-radius:1cqw;padding:.7cqw 1.1cqw;font-weight:800;font-size:1.15cqw;box-shadow:.28cqw .3cqw 0 #2b0b1f}
+.pop .st:nth-child(2){background:#c9ffe8;transform:rotate(-3deg)}
+.pop .st:nth-child(3){background:#dcd0ff;transform:rotate(2.5deg)}
+
+/* 02 - Night Luxe */
+.luxe{background:radial-gradient(120% 90% at 50% 0%,#1b1712 0%,#0a0908 60%);color:#f3ead9;font-family:'Montserrat',sans-serif;padding:5cqw 6cqw;align-items:center;text-align:center;justify-content:center;gap:2.4cqw}
+.luxe .seal{width:7.4cqw;height:7.4cqw;border-radius:50%;border:.12cqw solid #c9a227;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:2.6cqw;color:#c9a227;letter-spacing:.08em}
+.luxe .eyebrow{font-size:1.05cqw;letter-spacing:.42em;text-transform:uppercase;color:#9b8a6b;font-weight:500}
+.luxe h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:7.4cqw;line-height:1.02;letter-spacing:.005em}
+.luxe h1 em{font-style:italic;color:#c9a227}
+.luxe .rule{width:18cqw;height:.09cqw;background:linear-gradient(90deg,transparent,#c9a227,transparent)}
+.luxe .sub{font-size:1.5cqw;font-weight:300;color:#b8ab93;letter-spacing:.16em;text-transform:uppercase}
+.luxe .foot{font-size:1.1cqw;color:#7e7259;letter-spacing:.24em;text-transform:uppercase}
+
+/* 03 - Blueprint */
+.bp{background:#071a33;color:#e8f2ff;font-family:'Inter',sans-serif;padding:4.4cqw 5cqw;
+  background-image:linear-gradient(rgba(120,190,255,.11) .08cqw,transparent .08cqw),linear-gradient(90deg,rgba(120,190,255,.11) .08cqw,transparent .08cqw);background-size:2.6cqw 2.6cqw}
+.bp .top{display:flex;justify-content:space-between;align-items:flex-start;gap:2cqw;font-family:'JetBrains Mono',monospace;font-size:1.1cqw;color:#7fd7ff;letter-spacing:.08em}
+.bp .mid{flex:1;display:flex;align-items:center;gap:4cqw}
+.bp .txt{flex:1}
+.bp h1{font-size:5.6cqw;font-weight:700;line-height:1.02;letter-spacing:-.025em}
+.bp h1 em{font-style:normal;color:#45c8ff}
+.bp .sub{font-family:'JetBrains Mono',monospace;font-size:1.3cqw;color:#9dbbe0;margin-top:1.8cqw;line-height:1.6}
+.bp .schema{width:26cqw;flex:none}
+.bp .foot{display:flex;justify-content:space-between;align-items:flex-end;font-family:'JetBrains Mono',monospace;font-size:1.1cqw;color:#9dbbe0}
+.bp .nm{color:#e8f2ff;font-size:1.5cqw;font-weight:500;font-family:'Inter',sans-serif}
+
+/* 04 - Najd Dusk (Arabic, RTL) */
+.najd{background:linear-gradient(170deg,#f6e3c2 0%,#e2a35f 38%,#6b3f72 78%,#2b1f4d 100%);color:#2a1a0f;font-family:'Readex Pro',sans-serif;direction:rtl;padding:4.8cqw 5.4cqw;text-align:right}
+.najd .top{display:flex;justify-content:space-between;align-items:center;gap:2cqw}
+.najd .brand{font-family:'Reem Kufi',sans-serif;font-size:3.1cqw;font-weight:600;color:#4a2d12;line-height:1.5}
+.najd .tiles{display:flex;gap:.8cqw}
+.najd .tl{width:2.2cqw;height:2.2cqw;background:#4a2d12;opacity:.5;transform:rotate(45deg);border-radius:.2cqw}
+.najd .tl:nth-child(2){opacity:.32}
+.najd .tl:nth-child(3){opacity:.18}
+.najd .mid{flex:1;display:flex;flex-direction:column;justify-content:center;gap:2cqw}
+.najd h1{font-family:'Reem Kufi',sans-serif;font-weight:400;font-size:6.4cqw;line-height:1.62;color:#fdf3e2;text-shadow:0 .1cqw .55cqw rgba(43,31,77,.3);max-width:92%}
+.najd h1 em{font-style:normal;color:#ffd79a}
+.najd .sub{font-size:2.1cqw;font-weight:300;color:#fbe9cf;max-width:66%;line-height:1.9}
+.najd .dunes{width:100%;opacity:.45;margin-top:.6cqw}
+.najd .foot{display:flex;justify-content:space-between;align-items:flex-end;gap:2cqw}
+.najd .nm{font-size:1.75cqw;font-weight:600;color:#fdf3e2}
+.najd .rl{font-size:1.25cqw;font-weight:300;color:#f0dcc0;margin-top:.4cqw}
+.najd .date{font-size:1.2cqw;color:#f0dcc0;font-weight:300}
+.najd .ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+
+/* 05 - Comic Book */
+.comic{background:#ffd93d;color:#141414;font-family:'Comic Neue',cursive;padding:4.4cqw 4.8cqw;
+  background-image:radial-gradient(#141414 1.3px,transparent 1.4px);background-size:14px 14px}
+.comic .panelrow{flex:1;display:flex;gap:1.6cqw;align-items:stretch}
+.comic .panel{background:#fff;border:.32cqw solid #141414;border-radius:.6cqw;box-shadow:.5cqw .55cqw 0 #141414;padding:2.2cqw 2.4cqw;display:flex;flex-direction:column;justify-content:center;gap:1cqw}
+.comic .big{flex:1.7}
+.comic .side{flex:1;background:#ff3b30;color:#fff;align-items:center;text-align:center}
+.comic .kicker{font-family:'Bangers',cursive;font-size:1.7cqw;letter-spacing:.1em;color:#0057ff}
+.comic h1{font-family:'Bangers',cursive;font-size:7cqw;line-height:.96;letter-spacing:.02em}
+.comic h1 em{font-style:normal;color:#ff3b30;-webkit-text-stroke:.1cqw #141414}
+.comic .sub{font-size:1.65cqw;font-weight:700;color:#3b3b3b}
+.comic .pow{font-family:'Bangers',cursive;font-size:4.6cqw;line-height:1;letter-spacing:.04em}
+.comic .powsub{font-size:1.3cqw;font-weight:700;line-height:1.4}
+.comic .foot{display:flex;justify-content:space-between;align-items:center;margin-top:1.8cqw}
+.comic .balloon{background:#fff;border:.28cqw solid #141414;border-radius:99px;padding:.8cqw 1.6cqw;font-weight:700;font-size:1.3cqw;box-shadow:.3cqw .32cqw 0 #141414}
+.comic .nm{font-family:'Bangers',cursive;font-size:2cqw;letter-spacing:.06em}
+</style>
+
+<!-- 01 - Bubblegum Pop -->
+<section class="page pop">
+  <div class="top">
+    <span class="tag">Growth &middot; Season 4</span>
+    <div class="badge">NO<br>SLIDES<br>HARMED</div>
+  </div>
+  <div class="mid">
+    <h1>Selling without <em>the slides.</em></h1>
+    <p class="sub">How we booked 212 demos with voice notes, memes and one very loud spreadsheet.</p>
+  </div>
+  <div class="bottom">
+    <div class="who">
+      <div class="av"></div>
+      <div><div class="nm">Noor Rahal</div><div class="rl">Head of Growth &middot; Fernway</div></div>
+    </div>
+    <div class="stickers"><span class="st">12 min</span><span class="st">3 stories</span><span class="st">1 ask</span></div>
+  </div>
+</section>
+
+<!-- 02 - Night Luxe -->
+<section class="page luxe">
+  <div class="seal">A</div>
+  <p class="eyebrow">Atelier Aurelle &middot; Private View</p>
+  <h1>The quiet <em>luxury</em> report</h1>
+  <div class="rule"></div>
+  <p class="sub">Nine houses &middot; Four markets &middot; One decade</p>
+  <p class="foot">Dana Reyes &mdash; Brand Director</p>
+</section>
+
+<!-- 03 - Blueprint -->
+<section class="page bp">
+  <div class="top">
+    <span>PLATFORM / REVIEW &mdash; 2026.Q3</span>
+    <span>REV 04 &middot; SHEET 01 OF 18</span>
+  </div>
+  <div class="mid">
+    <div class="txt">
+      <h1>Shipping at <em>sixty frames</em> a second.</h1>
+      <p class="sub">What the render pipeline looks like<br>after we deleted two thirds of it.</p>
+    </div>
+    <svg class="schema" viewBox="0 0 300 200" fill="none">
+      <rect x="6" y="40" width="74" height="40" rx="4" stroke="#45c8ff" stroke-width="1.4"/>
+      <rect x="112" y="12" width="74" height="40" rx="4" stroke="#7fd7ff" stroke-width="1.4"/>
+      <rect x="112" y="68" width="74" height="40" rx="4" stroke="#7fd7ff" stroke-width="1.4"/>
+      <rect x="218" y="40" width="74" height="40" rx="4" stroke="#45c8ff" stroke-width="1.4"/>
+      <rect x="112" y="128" width="74" height="40" rx="4" stroke="#3a6ea0" stroke-width="1.4" stroke-dasharray="4 4"/>
+      <path d="M80 60h32M186 32h16v28h16M186 88h16V60h16M149 108v20" stroke="#45c8ff" stroke-width="1.4"/>
+      <circle cx="80" cy="60" r="3" fill="#45c8ff"/><circle cx="218" cy="60" r="3" fill="#45c8ff"/>
+      <text x="22" y="64" fill="#9dbbe0" font-family="JetBrains Mono" font-size="9">INGEST</text>
+      <text x="130" y="36" fill="#9dbbe0" font-family="JetBrains Mono" font-size="9">PARSE</text>
+      <text x="132" y="92" fill="#9dbbe0" font-family="JetBrains Mono" font-size="9">CACHE</text>
+      <text x="236" y="64" fill="#9dbbe0" font-family="JetBrains Mono" font-size="9">RENDER</text>
+      <text x="124" y="152" fill="#6f90b8" font-family="JetBrains Mono" font-size="9">DEPRECATED</text>
+    </svg>
+  </div>
+  <div class="foot">
+    <div><div class="nm">Omar Faris</div><span>STAFF ENGINEER &middot; CORE PLATFORM</span></div>
+    <span>42 services &middot; 6 regions</span>
+  </div>
+</section>
+
+<!-- 04 - Najd Dusk (Arabic) -->
+<section class="page najd">
+  <div class="top">
+    <span class="brand">نخلة</span>
+    <div class="tiles"><span class="tl"></span><span class="tl"></span><span class="tl"></span></div>
+  </div>
+  <div class="mid">
+    <h1>كيف نبني منتجًا<br><em>يحبه السوق؟</em></h1>
+    <p class="sub">ثلاث سنوات من التجربة، وأربعة دروس لا تُنسى.</p>
+    <svg class="dunes" viewBox="0 0 1100 70" fill="none" preserveAspectRatio="none">
+      <path d="M0 54c180-34 300 18 460-10s300 16 460-24" stroke="#fdf3e2" stroke-width="2"/>
+      <path d="M0 66c200-26 320 20 500-8s300 14 480-26" stroke="#fdf3e2" stroke-width="1.2" opacity=".55"/>
+      <circle cx="1020" cy="22" r="13" stroke="#ffd79a" stroke-width="2.4"/>
+    </svg>
+  </div>
+  <div class="foot">
+    <div><div class="nm">سارة المطيري</div><div class="rl">مديرة المنتج &middot; نَخلة</div></div>
+    <span class="date">الرياض &middot; <span class="ltr">2026</span></span>
+  </div>
+</section>
+
+<!-- 05 - Comic Book -->
+<section class="page comic">
+  <div class="panelrow">
+    <div class="panel big">
+      <span class="kicker">MEANWHILE, IN OPERATIONS&hellip;</span>
+      <h1>Our quarter, <em>in panels.</em></h1>
+      <p class="sub">Six near-disasters, four rescues, one very good Tuesday.</p>
+    </div>
+    <div class="panel side">
+      <div class="pow">KA-POW!</div>
+      <div class="powsub">98.4% on-time<br>after the rewrite</div>
+    </div>
+  </div>
+  <div class="foot">
+    <span class="balloon">&ldquo;Start at the worst week, then zoom out.&rdquo;</span>
+    <span class="nm">MILO CHEN &middot; OPS</span>
+  </div>
+</section>

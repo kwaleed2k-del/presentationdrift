@@ -3,7 +3,7 @@ name: kimzpresentations
 description: Build cinematic, animation-heavy presentations as React web decks — neon, bright, colourful, minimal, luxe or any brand's colours — with a 20-archetype slide library (title boot terminals, 3D carousels, journeys, live UI mocks, video walls, stats, thank-you slides with stickers, drifting-car finales), a presenter engine (keyboard nav, build steps, theme switching, notes, overview) and a crisp-asset pipeline for screenshots, logos, photos and video. Use this whenever someone wants a presentation, deck, slides, keynote, pitch deck, demo day deck, product launch, QBR/quarterly review, tech talk, team showcase, "how I work" deck, thank-you slides, or wants slides that are animated, "sick", "wow", "flex", colourful or on-brand — even if they don't say "React" and even if they only paste content, screenshots or a brand PDF. Also use it to restyle or upgrade an existing deck. Every new deck starts with three live style options built from the presenter's character and prompt, so no two people get the same deck.
 ---
 
-# KimzPresentations
+# kimzPresentations
 
 Turns content into a 1920×1080 React deck that runs in the browser, full screen, with motion on every slide.
 The skill ships a **template** (engine + themes + archetypes), **8 example decks**, **scripts** for assets, and **references**.

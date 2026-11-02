@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Scaffold a new KimzPresentations deck.
+// Scaffold a new kimzPresentations deck.
 //   node <skill>/scripts/new-deck.mjs <target-dir> [--theme neon-dark] [--title "My Deck"] [--with-examples]
 // Copies the template (without node_modules/dist), writes a starter deck, then prints next steps.
 import { cpSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'

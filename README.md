@@ -1,4 +1,4 @@
-# PresentationDrift ✦ — the KimzPresentations skill
+# kimzPresentations ✦
 
 **A Claude Code skill that builds cinematic, animation-heavy presentations** in any style — neon, bright, colourful, minimal, luxe, or your brand's own colours.
 Give Claude your content (or a folder of screenshots, videos, photos and a brand PDF) and it composes a 1920×1080 React deck from a library of 20 animated slide archetypes, runs it in your browser, and presents it full screen.
@@ -7,9 +7,34 @@ Give Claude your content (or a folder of screenshots, videos, photos and a brand
 
 ---
 
+## Five covers, five people
+
+Same request, five different presenters — five different decks. Before anything is built, Claude reads **your** character and prompt and offers three live looks like these; you pick one. Slide 01 from five directions in the library:
+
+<a href="docs/images/covers/01-bubblegum-pop.jpg"><img src="docs/images/covers/01-bubblegum-pop.jpg" alt="Bubblegum Pop cover" width="49%"></a>
+<a href="docs/images/covers/02-night-luxe.jpg"><img src="docs/images/covers/02-night-luxe.jpg" alt="Night Luxe cover" width="49%"></a>
+<a href="docs/images/covers/03-blueprint.jpg"><img src="docs/images/covers/03-blueprint.jpg" alt="Blueprint cover" width="49%"></a>
+<a href="docs/images/covers/04-najd-dusk-arabic.jpg"><img src="docs/images/covers/04-najd-dusk-arabic.jpg" alt="Najd Dusk cover, Arabic RTL" width="49%"></a>
+<a href="docs/images/covers/05-comic-book.jpg"><img src="docs/images/covers/05-comic-book.jpg" alt="Comic Book cover" width="49%"></a>
+
+| Direction | For the presenter who is… | Palette · type · mechanic |
+|---|---|---|
+| **Bubblegum Pop** | funny, bubbly, allergic to bullet points | pink dots · Bricolage Grotesque + Figtree · sticker cards, spinning badges |
+| **Night Luxe** | premium, quiet, selling exclusivity | black + gold · Cormorant Garamond + Montserrat · monogram seal, slow particles |
+| **Blueprint** | an engineer who thinks in systems | navy grid · JetBrains Mono + Inter · schematics that draw themselves on |
+| **Najd Dusk** | rooted, warm, presenting in Arabic | sand → dusk · Reem Kufi · full RTL, sun arc, dune lines |
+| **Comic Book** | loud, funny, telling a story | halftone yellow · Bangers + Comic Neue · panels, balloons, POW bursts |
+
+Thirteen more ship with the skill — Pearl Glam, Rosé Glass OS, Neon Arcade, Swiss Grid, Editorial Ink, Botanical Calm, Clinical Clean, Terminal Hacker, Sports Hype, Y2K Chrome, Retro 70s, Crayon Kids, Aurora Glass — and Claude will invent one for you if none of them fit.
+
+> These are static cover stills. In the deck every one of them is animated, and **T** re-skins the whole deck live.
+> Rebuild them yourself: `node docs/shoot-covers.mjs <chrome-debug-port> <url-to-docs/covers.html>`.
+
+---
+
 ## Powered by
 
-| | What it does in KimzPresentations |
+| | What it does in kimzPresentations |
 |---|---|
 | **[React Bits](https://reactbits.dev)** | The motion layer: **33 components**. Text effects (DecryptedText, SplitText, BlurText, ShinyText, GradientText, RotatingText, GlitchText, CountUp…), **12 WebGL backdrops** (Hyperspeed, Aurora, LightRays, Galaxy, Threads, Particles, Silk, Iridescence, Beams, Plasma, DarkVeil, DotGrid) and components (ClickSpark, ElectricBorder, CardSwap, TiltedCard, LogoLoop…). Installed per machine by `npm run setup`. → [`references/react-bits.md`](skills/kimzpresentations/references/react-bits.md) |
 | **[21st.dev](https://21st.dev)** | Component registry. Bundled: Magic UI **Animated Beam** + **Orbiting Circles**. With the **21st.dev Magic MCP** connected, Claude searches 21st.dev for whatever a slide needs (pricing tables, globes, marquees, mockups), pulls it and re-themes it. → [`references/21st-dev.md`](skills/kimzpresentations/references/21st-dev.md) |
