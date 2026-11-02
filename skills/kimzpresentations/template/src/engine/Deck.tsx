@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from 'motion/react'
 import { useCallback, useEffect, useMemo, useState } from 'react'
+import './audit' // press L for the layout audit; see src/engine/audit.ts
 import { DeckCtx } from './context'
 import { THEMES, THEME_IDS, themeVars, type Theme, type ThemeId } from './theme'
 import type { Accent, DeckDef } from './types'
@@ -102,7 +103,7 @@ export default function Deck({ deck }: { deck: DeckDef }) {
 
   // Exposed for the gallery capture script (CI screenshots): slide ids + steps + current position.
   useEffect(() => {
-    ;(window as unknown as { __kimz: unknown }).__kimz = { title: deck.title, slides: slides.map((s) => ({ id: s.id, steps: s.steps ?? 1 })), index, step }
+    ;(window as unknown as { __kimz: unknown }).__kimz = { title: deck.title, slides: slides.map((s) => ({ id: s.id, steps: s.steps ?? 1, notes: s.notes ?? '' })), index, step }
   }, [deck.title, slides, index, step])
 
   const ctx = useMemo(() => ({ index, step, total: slides.length, theme, accent, rtl: !!deck.rtl }), [index, step, slides.length, theme, accent, deck.rtl])
@@ -117,6 +118,7 @@ export default function Deck({ deck }: { deck: DeckDef }) {
     <div className="fixed inset-0 overflow-hidden" style={{ ...vars, background: theme.bg } as React.CSSProperties}>
       <div
         className="absolute left-1/2 top-1/2 overflow-hidden"
+        data-kimz-stage=""
         dir={deck.rtl ? 'rtl' : 'ltr'}
         style={{
           width: W,

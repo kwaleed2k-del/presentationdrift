@@ -53,4 +53,6 @@ next:
   npm install
   npm run setup      # installs React Bits components
   npm run dev        # edit deck/deck.tsx — the browser updates live
-  npm run present    # production build for the real talk`)
+  npm run check      # layout audit: no overlap, nothing outside its box
+  npm run present    # production build for the real talk
+  npm run export     # PDF + PowerPoint (with notes) + stills`)

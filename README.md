@@ -86,6 +86,29 @@ Then just ask: *"make me a pitch deck for …"*. Claude first shows you 3 animat
 | **8 example decks** | startup pitch · tech talk · product launch · quarterly report · luxury brand · editorial · Arabic RTL · brand colours |
 | **RTL** | Arabic decks with correct letter joining (no per-letter effects on Arabic) |
 
+## Check it, then send it
+
+Two commands every deck gets. No extra dependencies — they drive headless Chrome directly (Node 22+ and Chrome or Edge).
+
+```bash
+npm run check     # walks every slide and build step, fails on layout defects
+npm run export    # export/<Title>.pdf + .pptx + slides/*.jpg
+```
+
+**`npm run check`** is the "no overlapping text, nothing outside its box" guarantee, automated: overlapping text, text off the 1920x1080 stage, text escaping its `[data-box]` card, text clipped by an `overflow:hidden` parent, type too small to read on a projector. It exits non-zero, so it can gate a commit, and `--shots failures` writes a jpg of every slide it rejects. The same audit runs in the browser — **press L on any slide** for red outlines and a verdict badge. Character-span effects (SplitText, DecryptedText) and deliberate marquees don't trip it.
+
+**`npm run export`** answers "can you send me the slides?":
+
+| | |
+|---|---|
+| `<Title>.pdf` | one page per slide at **960x540 pt** = 13.333x7.5 in, prints and imports at 1:1 |
+| `<Title>.pptx` | the same frames full-bleed on 16:9 slides, with each slide's `notes` as **real PowerPoint speaker notes** — opens in Office with no repair prompt |
+| `slides/*.jpg` | 1920x1080 stills for WhatsApp, LinkedIn or a one-pager |
+
+Pages are the deck's own frames, so the file looks exactly like the deck but the text is not selectable — printing the live DOM instead would flatten every animation and break gradient-text headlines. `--steps` gives one page per build step, `--settle` buys slow counters more time. Full notes: [`references/export-and-check.md`](skills/kimzpresentations/references/export-and-check.md).
+
+---
+
 ## Gallery
 
 <!-- gallery:start -->

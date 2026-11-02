@@ -1,6 +1,6 @@
 ---
 name: kimzpresentations
-description: Build cinematic, animation-heavy presentations as React web decks — neon, bright, colourful, minimal, luxe or any brand's colours — with a 20-archetype slide library (title boot terminals, 3D carousels, journeys, live UI mocks, video walls, stats, thank-you slides with stickers, drifting-car finales), a presenter engine (keyboard nav, build steps, theme switching, notes, overview) and a crisp-asset pipeline for screenshots, logos, photos and video. Use this whenever someone wants a presentation, deck, slides, keynote, pitch deck, demo day deck, product launch, QBR/quarterly review, tech talk, team showcase, "how I work" deck, thank-you slides, or wants slides that are animated, "sick", "wow", "flex", colourful or on-brand — even if they don't say "React" and even if they only paste content, screenshots or a brand PDF. Also use it to restyle or upgrade an existing deck. Every new deck starts with three live style options built from the presenter's character and prompt, so no two people get the same deck.
+description: Build cinematic, animation-heavy presentations as React web decks — neon, bright, colourful, minimal, luxe or any brand's colours — with a 20-archetype slide library (title boot terminals, 3D carousels, journeys, live UI mocks, video walls, stats, thank-you slides with stickers, drifting-car finales), a presenter engine (keyboard nav, build steps, theme switching, notes, overview) and a crisp-asset pipeline for screenshots, logos, photos and video. Use this whenever someone wants a presentation, deck, slides, keynote, pitch deck, demo day deck, product launch, QBR/quarterly review, tech talk, team showcase, "how I work" deck, thank-you slides, or wants slides that are animated, "sick", "wow", "flex", colourful or on-brand — even if they don't say "React" and even if they only paste content, screenshots or a brand PDF. Also use it to restyle or upgrade an existing deck. Every new deck starts with three live style options built from the presenter's character and prompt, so no two people get the same deck. Decks also export to PDF, PowerPoint (with real speaker notes) and stills, so use this skill as well when someone asks to send, share or email the slides, or wants a deck as a file.
 ---
 
 # kimzPresentations
@@ -19,8 +19,10 @@ SKILL/
   films/               ← Remotion project: themed ProductFilm (hook → features → screen → stats → CTA)
   auditions/           ← index.html: the 3-look style audition starter (engine done, looks to replace)
   scripts/             ← doctor.mjs (setup check) · auditions.mjs · new-deck.mjs · assets.py · encode-video.sh
+                       (plus scripts/check.mjs + scripts/export.mjs inside template/)
   references/          ← archetypes · themes · assets · content · custom-slides · rtl · pitfalls
                           style-auditions · design-direction · react-bits · 21st-dev · films · onboarding
+                          export-and-check
 ```
 
 ## Workflow
@@ -87,13 +89,17 @@ Compose from the archetypes directly; the `template/examples/` decks are optiona
 After the first 3–4 hero slides, give the user the localhost link and ask for a vibe check before building the rest. Users react to motion and colour, not outlines.
 
 ### 7. Verify before saying done
+- **`npm run check`** — walks every slide and build step in headless Chrome and fails on overlapping text, text off the stage or outside its `[data-box]`, clipped text and unreadable type. Run it before showing the user any slides, and fix what it reports. `--shots failures` writes a jpg of each bad slide; press **L** in the browser to audit one slide. Details and the `data-audit-skip` escape hatch: `references/export-and-check.md`.
 - `npx tsc -p tsconfig.app.json --noEmit` and `npm run build` pass.
 - Walk every slide forward and back (→/←), including all steps. If a browser tool is available, screenshot slides and look at them; otherwise say plainly that you verified by build only and list what to eyeball.
 - Run the `references/pitfalls.md` checklist — especially overflow arithmetic, lingering blur filters, 1:1 assets, Tailwind `@utility` animations, RTL letter-splitting.
 - Facts check: no invented numbers, quotes, features or names; placeholders look like placeholders.
 
 ### 8. Present
-`npm run present` (production build on :5200). Keys: **→/Space** next · **←** back · **F** fullscreen · **H** hide chrome · **O** overview · **T** cycle themes · **N** speaker notes · `#7` in the URL jumps to slide 7, `?theme=night-luxe` forces a mode.
+`npm run present` (production build on :5200). Keys: **→/Space** next · **←** back · **F** fullscreen · **H** hide chrome · **O** overview · **T** cycle themes · **N** speaker notes · **L** layout audit · `#7` in the URL jumps to slide 7, `?theme=night-luxe` forces a mode.
+
+### 9. Send the file (whenever someone will not be in the room)
+`npm run export` writes `export/<Title>.pdf` (960×540 pt, prints 1:1), `export/<Title>.pptx` (full-bleed frames with each slide’s `notes` as real PowerPoint notes) and `export/slides/*.jpg`. Offer it as soon as a deck is done — people ask for “the slides” within a day. The pages are frames, so **the text is not selectable**: say that when handing it over, and raise `--settle` if a counter or boot terminal is caught mid-animation. `references/export-and-check.md`.
 
 ## Modes at a glance
 `neon-dark` · `aurora-glass` · `sunset-heat` · `bright-clean` · `colorful-pop` (brutal) · `minimal-mono` (editorial serif) · `night-luxe` (gold serif) · `brandTheme([...])`. Details and backdrops: `references/themes.md`. Show the gallery to let people pick: `npm run gallery` → `?deck=<example>` then press **T**.

@@ -43,6 +43,17 @@ const pyCmd = run('python --version') ? 'python' : 'python3'
 check('Python 3', !!py, py ?? 'missing', fix('winget install Python.Python.3.12', 'brew install python', 'sudo apt install python3 python3-pip'))
 const pil = py && run(`${pyCmd} -c "import PIL; print(PIL.__version__)"`)
 check('Pillow (screenshot/photo scripts)', !!pil, pil ?? 'missing', `${pyCmd} -m pip install pillow`)
+// Chrome drives `npm run check` (layout audit) and `npm run export` (PDF/PPTX) over the DevTools protocol.
+const chromePaths = [
+  process.env.KIMZ_CHROME,
+  ...(plat === 'win32'
+    ? ['C:/Program Files/Google/Chrome/Application/chrome.exe', 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe', path.join(os.homedir(), 'AppData/Local/Google/Chrome/Application/chrome.exe'), 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe']
+    : plat === 'darwin'
+      ? ['/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', '/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge']
+      : ['/usr/bin/google-chrome', '/usr/bin/google-chrome-stable', '/usr/bin/chromium', '/usr/bin/chromium-browser', '/snap/bin/chromium']),
+].filter(Boolean)
+const chrome = chromePaths.find((c) => existsSync(c))
+check('Chrome (layout check + PDF/PPTX export)', !!chrome && nodeMajor >= 22, chrome ? (nodeMajor >= 22 ? chrome : `found, but export needs Node 22+ (v${process.versions.node})`) : 'missing', nodeMajor >= 22 ? fix('winget install Google.Chrome', 'brew install --cask google-chrome', 'sudo apt install chromium-browser') : fix('winget upgrade OpenJS.NodeJS.LTS', 'brew upgrade node', 'nvm install --lts'), false)
 const ff = run('ffmpeg -version')
 check('ffmpeg (video encoding)', !!ff, ff ? ff.split('\n')[0].split(' ').slice(0, 3).join(' ') : 'missing', fix('winget install Gyan.FFmpeg', 'brew install ffmpeg', 'sudo apt install ffmpeg'))
 

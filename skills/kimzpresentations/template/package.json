@@ -10,7 +10,9 @@
     "build": "tsc -b && vite build",
     "build:gallery": "tsc -b && vite build --mode gallery",
     "preview": "vite preview",
-    "present": "vite build && vite preview --port 5200 --strictPort --open"
+    "present": "vite build && vite preview --port 5200 --strictPort --open",
+    "check": "node scripts/check.mjs",
+    "export": "node scripts/export.mjs"
   },
   "dependencies": {
     "@fontsource-variable/fraunces": "^5.2.8",
